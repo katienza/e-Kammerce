@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store';
+import { BrowserRouter } from 'react-router-dom';
 import '../public/style.css';
 import App from './app';
 
 const app = (
-  <Provider store={store}>
-    <Router>
-      <App />
-    </Router>
-  </Provider>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 
 ReactDOM.render(app, document.getElementById('root'));
+
+module.hot.accept()
