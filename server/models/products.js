@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const productsSchema = new mongoose.Schema({
   products: {
     type: Object,
+    size: 50,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

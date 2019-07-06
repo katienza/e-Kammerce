@@ -43,7 +43,6 @@ app.get('*', (req, res) => {
 /*
  *   Auth and API routes
  */
-app.get('/', (req, res) => res.send('Hello World'));
 app.use('/api', require('./routes/router'));
 
 /*
