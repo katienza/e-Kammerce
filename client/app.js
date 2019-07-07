@@ -5,17 +5,24 @@ import {
   Route,
   withRouter,
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import UserHome from './components/UserHome';
 class App extends Component {
   render() {
+    const {isLoggedIn} = this.props
+
     return (
       <div id='container'>
-        <UserHome />
         <Switch>
-          <h1>
-            Hello world this is a react app with babel
-            loaded
-          </h1>
+          <Route path='/' component={UserHome} />
+          {isLoggedIn && (
+            <Switch>
+              <h1>
+                Hello world this is a react app with babel
+                loaded
+              </h1>
+            </Switch>
+          )}
         </Switch>
       </div>
     );
@@ -29,3 +36,10 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(connect(mapStateToProps)(App));
+
+/*
+ * PROP TYPES
+ */
+App.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+};
