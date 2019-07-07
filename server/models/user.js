@@ -4,6 +4,7 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
+    sparse: true,
   },
 });
 
@@ -15,6 +16,5 @@ userSchema.statics.findByLogin = async function(login) {
   return user;
 };
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+const users = mongoose.model('users', userSchema);
+module.exports = users;
