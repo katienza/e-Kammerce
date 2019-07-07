@@ -1,5 +1,49 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#container {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.login {
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  padding: 80px 60px 80px 60px;
+}
+
+.login-label {
+  position: relative;
+  font-size: 25px;
+  left: 2rem;
+  bottom: 1.5rem;
+}
+
+.login-txt {
+  font-size: 25px;
+}
+
+.login-input {
+  position: relative;
+  top: 1.5rem;
+}
+
+.name-input {
+  position: relative;
+  height: 2.5rem;
+  width: 15rem;
+  left: 10px;
 }
