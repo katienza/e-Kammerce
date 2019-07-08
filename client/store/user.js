@@ -1,14 +1,13 @@
 /*
  *   ACTION TYPES
  */
-const LOG_IN = 'LOG_IN';
+export const TOGGLE_LOGIN = 'TOGGLE_LOGIN';
 
 /*
  *   ACTION CREATORS
  */
-const userLogIn = user => ({
-  type: LOG_IN,
-  user,
+export const loginCheck = () => ({
+  type: TOGGLE_LOGIN,
 });
 
 /*
@@ -22,8 +21,8 @@ const initialState = {
  *   REDUCER
  */
 export default function(state = initialState, action) {
-  if (action.type === 'LOG_IN') {
-    return { ...state, auth: { isLoggedIn: true } };
+  if (action.type === TOGGLE_LOGIN) {
+    return { ...state, auth: {isLoggedIn: !state.auth.isLoggedIn} };
   } else {
     return state;
   }

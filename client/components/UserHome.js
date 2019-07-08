@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class UserHome extends Component {
@@ -13,23 +12,32 @@ class UserHome extends Component {
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
   }
 
-  async handleSubmit() {
+  async handleSubmit(event) {
     try {
-      const user = this.state.username
+      event.preventDefault();
+      
+      const user = this.state.username;
       axios.post('http://localhost:3000/api/', {
         method: 'POST',
-        body: JSON.stringify(user),
+        body: user,
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       });
+
+      this.props.loginCheck();
+
+      const isAuthenticated = !this.props.isLoggedIn
+      localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated))
+
+      this.props.history.push('/products')
     } catch (err) {
       console.error(err);
     }
   }
 
   handleUsernameChange(event) {
-    event.preventDefault()
+    event.preventDefault();
     this.setState({
       username: event.target.value,
     });
@@ -63,17 +71,15 @@ class UserHome extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    isLoggedIn: state.user.auth.isLoggedIn,
-  };
-};
+const mapStateToProps = state => ({
+  isLoggedIn: state.user.auth.isLoggedIn,
+});
 
-export default connect(mapStateToProps)(UserHome);
+const mapDispatchToProps = dispatch => ({
+  loginCheck: () => dispatch({ type: 'TOGGLE_LOGIN' }),
+});
 
-/*
- *   PROP TYPES
- */
-UserHome.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(UserHome);
