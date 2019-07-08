@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 class UserHome extends Component {
   constructor(props) {
@@ -31,6 +32,8 @@ class UserHome extends Component {
       localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated))
 
       this.props.history.push('/products')
+      
+      this.props.addUser(user)
     } catch (err) {
       console.error(err);
     }
@@ -72,14 +75,19 @@ class UserHome extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.user.auth.isLoggedIn,
+  isLoggedIn: state.check.auth.isLoggedIn,
 });
 
 const mapDispatchToProps = dispatch => ({
   loginCheck: () => dispatch({ type: 'TOGGLE_LOGIN' }),
+  addUser: username => dispatch({ type: 'ADD_USER', username })
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(UserHome);
+
+UserHome.propTypes = {
+  isLoggedIn: PropTypes.bool.isRequired,
+};

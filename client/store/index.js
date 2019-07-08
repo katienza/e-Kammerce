@@ -5,10 +5,12 @@ import {
   compose,
 } from 'redux';
 import thunk from 'redux-thunk';
+import check from './check';
 import user from './user';
 
 const reducer = combineReducers({
-  user,
+  check,
+  user
 });
 
 const composeEnhancers =

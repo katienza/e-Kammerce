@@ -4,11 +4,10 @@ import {
   Switch,
   Route,
   withRouter,
-  Redirect,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import UserHome from './components/UserHome';
-import Products from './components/Products';
+import Products from './components/Products/Products';
 import ProtectedRoute from './PrivateRoute'
 
 class App extends Component {
@@ -29,7 +28,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  isLoggedIn: state.user.auth.isLoggedIn,
+  isLoggedIn: state.check.auth.isLoggedIn,
+  username: state.user.username,
 });
 
 export default withRouter(connect(mapStateToProps)(App));
@@ -39,4 +39,5 @@ export default withRouter(connect(mapStateToProps)(App));
  */
 App.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired,
 };
