@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-router-dom';
 import axios from 'axios';
 
 class UsersList extends Component {
@@ -42,9 +41,5 @@ class UsersList extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//     listUsers:
-// });
 
 export default UsersList;

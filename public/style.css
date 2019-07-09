@@ -14,6 +14,9 @@ body,
   font-size: 16px;
 }
 
+/* 
+* LOGIN PAGE 
+*/
 .login {
   position: absolute;
   margin: 0;
@@ -46,4 +49,40 @@ body,
   height: 2.5rem;
   width: 15rem;
   left: 10px;
+}
+
+/*
+* Navbar
+*/
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid slategrey;
+}
+
+.copyright {
+  position: relative;
+  font-size: 26px;
+  left: 40rem;
+  padding: 10px;
+  margin: 10px;
+}
+.welcome-sign {
+  position: relative;
+  font-size: 28px;
+  left: 20rem;
+  padding: 10px;
+  margin: 10px;
+}
+.userlist-btn {
+  position: relative;
+  right: 2rem;
+  font-size: 22px;
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
 }
