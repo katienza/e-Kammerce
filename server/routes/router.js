@@ -1,29 +1,40 @@
 const router = require('express').Router();
-const products = require('../models/products');
-const users = require('../models/user');
 const mongoose = require('mongoose').set('debug', true);
 const db = mongoose.connection;
 
-router.use('/users', require('../models/user'))
-
-// BASE URL: http://localhost:3000/api/users/
+// BASE URL: http://localhost:3000/api/
+/*
+* Stores a single username into db
+*/
 router.post('/', async (req, res, next) => {
   try {
     db.collection('users').insertOne(req.body, (err, user) => {
-        if (err) return console.error(err)
-        res.send('saved to db: ' + user)
+      if (err) throw err
+      res.send('saved to db: ' + user)
     })
   } catch (err) {
+    console.error(err);
     next(err);
   }
 });
 
-// router.get('/', async (req, res, next) => {
-//   try {
-//     res.json(req.username);
-//   } catch (err) {
-//     console.error(err);
-//     next(err);
-//   }
-// });
+/*
+* Retrieves array list of users from db
+*/
+router.get('/usersList', async (req, res, next) => {
+  try {
+    db.collection('users').find({}).toArray(function(err, users) {
+      if (err) {
+        throw err
+      } else {
+        console.log(users)
+        res.json(users)
+      }
+    })
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
+
 module.exports = router;

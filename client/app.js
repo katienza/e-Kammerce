@@ -6,9 +6,11 @@ import {
   withRouter,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import ProtectedRoute from './PrivateRoute'
 import UserHome from './components/UserHome';
 import Products from './components/Products/Products';
-import ProtectedRoute from './PrivateRoute'
+import UsersList from './components/Users/Userslist';
+
 
 class App extends Component {
   render() {
@@ -19,6 +21,10 @@ class App extends Component {
           <ProtectedRoute
             path={'/products'}
             component={Products}
+          />
+          <ProtectedRoute 
+            path={'/usersList'}
+            component={UsersList}
           />
           <Route component={UserHome} />
         </Switch>

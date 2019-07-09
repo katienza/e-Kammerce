@@ -42,17 +42,23 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        include: path.resolve('node_modules'),
         use: [
           { loader: "style-loader" }, 
           { loader: "css-loader" },
         ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
         use: [
           {
-            loader: "file-loader"
+            loader: "file-loader",
+          },
+          {
+            loader: "url-loader",
+            options: {
+              limit: 10000,
+            }
           }
         ]
       },
