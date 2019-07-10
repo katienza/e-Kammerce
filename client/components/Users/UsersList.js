@@ -9,7 +9,7 @@ class UsersList extends PureComponent {
     };
   }
 
-  async componentDidMount() {
+  async componentWillMount() {
     const { data } = await axios.get('http://localhost:3000/api/usersList');
     const userData = data.map(user => user.body);
     this.setState(state =>

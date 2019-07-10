@@ -42,11 +42,11 @@ router.get('/usersList', async (req, res, next) => {
 */
 router.get('/products', async (req, res, next) => {
   try {
-    await Products.findOne({}).lean().exec(function(err, products) {
+    await Products.find({}).lean().exec(function(err, products) {
       if (err) {
         throw err
       } else {
-        res.json(products)
+        res.json(JSON.parse(JSON.stringify(products)))
       }
     })
     
