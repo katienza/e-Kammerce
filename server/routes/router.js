@@ -42,14 +42,14 @@ router.get('/usersList', async (req, res, next) => {
 */
 router.get('/products', async (req, res, next) => {
   try {
-    await Products.find({}).lean().exec(function(err, products) {
+    Products.find({}).lean().exec(await function(err, products) {
       if (err) {
         throw err
       } else {
-        res.json(JSON.parse(JSON.stringify(products)))
+        res.send(JSON.parse(JSON.stringify(products[0].data)))
+        return;
       }
     })
-    
   } catch (err) {
     console.error(err);
     next(err);

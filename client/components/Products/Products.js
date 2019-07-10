@@ -2,22 +2,9 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Navbar from './Navbar';
 import getProductsAction from '../../store/thunk/productsThunk';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    position: 'relative',
-    padding: theme.spacing(10),
-    textAlign: 'center',
-    left: '50%',
-    marginTop: '50%',
-  },
-}));
+import ProductsList from './ProductsList';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 const Products = props => {
   useEffect(() => {
@@ -25,24 +12,28 @@ const Products = props => {
   }, []);
 
   const { products } = props;
-  const classes = useStyles();
-  console.log(products);
-  console.log(products.data);
-  // console.log(products.data[0])
+
   return (
-    <div className={classes.root}>
+    <div className='products-container'>
       <Navbar />
-      <Grid container spacing={3}>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>Product 1</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>Product 2</Paper>
-        </Grid>
-        <Grid item xs={3}>
-          <Paper className={classes.paper}>Product 3</Paper>
-        </Grid>
-      </Grid>
+      <GridList cols={3}>
+      { products.map(collection => {
+        const timestamp = new Date(Date.parse(collection.created_at))
+        const date = timestamp.toLocaleTimeString() + ' on '+ timestamp.toLocaleDateString()
+
+        return (
+          <GridListTile key={collection.product_id}>
+          <ProductsList
+            key={collection.product_id}
+            productsTitle={collection.title}
+            productsPrice={collection.price_str}
+            productsCreatedAt={date}
+            productsImage={collection.media[0].sizes[0].url}
+          />
+          </GridListTile>
+        );
+      })}
+      </GridList>
     </div>
   );
 };
