@@ -15,6 +15,11 @@ const app = (
   </Provider>
 );
 
-ReactDOM.render(app, document.getElementById('root'));
+/*
+* HOT RELOADING
+*/
+if (module.hot) {
+  module.hot.accept();
+}
 
-module.hot.accept();
+ReactDOM.render(app, document.getElementById('root'));

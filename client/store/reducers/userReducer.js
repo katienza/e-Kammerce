@@ -1,16 +1,4 @@
-/*
- *   ACTION TYPES
- */
-export const ADD_USER = 'ADD_USER';
-
-/*
- *   ACTION CREATORS
- */
-export const addUser = username => ({
-  type: ADD_USER,
-  username
-});
-
+import {ADD_USER} from '../actions/userActions';
 /*
  *   INITIAL STATE
  */
@@ -23,7 +11,7 @@ const initialState = {
  */
 export default function(state = initialState, action) {
   if (action.type === ADD_USER) {
-    return { ...state, username: action.username }
+    return { ...state, username: action.username };
   } else {
     return state;
   }

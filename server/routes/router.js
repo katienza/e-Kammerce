@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const mongoose = require('mongoose').set('debug', true);
+const Products = require('../models/products');
 const db = mongoose.connection;
 
 // BASE URL: http://localhost:3000/api/
@@ -8,7 +9,7 @@ const db = mongoose.connection;
 */
 router.post('/', async (req, res, next) => {
   try {
-    db.collection('users').insertOne(req.body, (err, user) => {
+    db.collection('users').insertOne(req.body, await function(err, user) {
       if (err) throw err
       res.send('saved to db: ' + user)
     })
@@ -23,11 +24,10 @@ router.post('/', async (req, res, next) => {
 */
 router.get('/usersList', async (req, res, next) => {
   try {
-    db.collection('users').find({}).toArray(function(err, users) {
+    db.collection('users').find({}).toArray(await function(err, users) {
       if (err) {
         throw err
       } else {
-        console.log(users)
         res.json(users)
       }
     })
@@ -36,5 +36,24 @@ router.get('/usersList', async (req, res, next) => {
     next(err);
   }
 });
+
+/*
+* Retrieves array list of products from db
+*/
+router.get('/products', async (req, res, next) => {
+  try {
+    await Products.findOne({}).lean().exec(function(err, products) {
+      if (err) {
+        throw err
+      } else {
+        res.json(products)
+      }
+    })
+    
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+})
 
 module.exports = router;

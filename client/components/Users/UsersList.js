@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import axios from 'axios';
 
-class UsersList extends Component {
+class UsersList extends PureComponent {
   constructor() {
     super();
     this.state = {
@@ -32,8 +32,10 @@ class UsersList extends Component {
               </tr>
             </thead>
             <tbody>
-              <td>{idx}</td>
-              <td>{user}</td>
+              <tr>
+                <td>{idx}</td>
+                <td>{user}</td>
+              </tr>
             </tbody>
           </table>
         ))}
