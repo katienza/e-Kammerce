@@ -55,34 +55,55 @@ body,
 * Navbar
 */
 .navbar-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: block;
   width: 100%;
+  height: 70px;
   border-bottom: 1px solid slategrey;
 }
 
 .copyright {
-  position: relative;
+  display: inline-block;
+  position: absolute;
   font-size: 26px;
   left: 40rem;
   padding: 10px;
   margin: 10px;
 }
 .welcome-sign {
-  position: relative;
+  display: inline-block;
+  position: absolute;
   font-size: 28px;
-  left: 20rem;
+  left: 60rem;
   padding: 10px;
   margin: 10px;
 }
-.userlist-btn {
-  position: relative;
+
+.userlist-btn{
+  position: absolute;
   right: 2rem;
-  font-size: 22px;
+  font-size: 20px;
   width: 200px;
   height: 50px;
   padding: 10px;
   margin: 10px;
+  outline: 0;
   border-radius: 15px;
+}
+
+.navbar-btn {
+  position: relative;
+  left: 2rem;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+  width: 300px;
+  height: 50px;
+  outline: 0;
+  border-radius: 15px;
+}
+/* PRODUCTS CONTAINER */
+.products-grid {
+  position: relative;
+  top: 50%;
+  transform: translate(0%, 50%);
 }

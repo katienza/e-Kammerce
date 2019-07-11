@@ -17,7 +17,7 @@ const Products = props => {
   return (
     <div className='products-container'>
       <Navbar />
-      <GridList cols={3}>
+      <GridList className='products-grid' cols={3}>
         {products.map(collection => {
           const timestamp = new Date(
             Date.parse(collection.created_at),
