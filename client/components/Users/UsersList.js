@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
+import UsersListRow from './UsersListRow';
 
 class UsersList extends PureComponent {
   constructor() {
@@ -7,6 +8,7 @@ class UsersList extends PureComponent {
     this.state = {
       users: [],
     };
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
   async componentWillMount() {
@@ -19,25 +21,22 @@ class UsersList extends PureComponent {
     );
   }
 
+  onClickHandler() {
+    this.props.history.push('/products');
+  }
+
   render() {
     return (
-      <div>
+      <div className='scrollingTable'>
+        <button
+          className='navbar-btn'
+          onClick={() => this.onClickHandler()}
+          style={{position: 'relative', left: '4em'}}>
+          Go Back to the main page
+        </button>
         <h1>LIST OF USERS:</h1>
         {this.state.users.map((user, idx) => (
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Username</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{idx}</td>
-                <td>{user}</td>
-              </tr>
-            </tbody>
-          </table>
+          <UsersListRow key={idx} user={user} />
         ))}
       </div>
     );

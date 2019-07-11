@@ -63,7 +63,7 @@ class UserHome extends PureComponent {
               className='name-input'
               type='text'
               value={this.state.username}
-              maxLength='255'
+              maxLength='16'
               onChange={this.handleUsernameChange}
               required
             />

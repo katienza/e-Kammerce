@@ -5,6 +5,8 @@
 html,
 body,
 #container {
+  background-color: #0096d6;
+  color: #fff;
   height: 500px;
   max-width: 100%;
   margin: 0;
@@ -24,7 +26,7 @@ body,
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  border: 1px solid black;
+  border: 1px solid #fff;
   padding: 80px 60px 80px 60px;
 }
 
@@ -58,7 +60,7 @@ body,
   display: block;
   width: 100%;
   height: 70px;
-  border-bottom: 1px solid slategrey;
+  border-bottom: 1px solid #fff;
 }
 
 .copyright {
@@ -80,6 +82,8 @@ body,
 
 .userlist-btn{
   position: absolute;
+  background-color: #0096d6;
+  color: #fff;
   right: 2rem;
   font-size: 20px;
   width: 200px;
@@ -92,6 +96,8 @@ body,
 
 .navbar-btn {
   position: relative;
+  background-color: #0096d6;
+  color: #fff;
   left: 2rem;
   padding: 10px;
   margin: 10px;
@@ -106,4 +112,25 @@ body,
   position: relative;
   top: 50%;
   transform: translate(0%, 50%);
+}
+
+/* USERS LIST */
+.scrollingTable {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -25%);
+  height: 15em;
+  width: 30em;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  text-align: center;
+  border: 1px solid #fff;
 }
