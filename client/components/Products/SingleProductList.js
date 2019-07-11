@@ -12,15 +12,30 @@ const useStyles = makeStyles({
 
 const SingleProductList = props => {
   const classes = useStyles();
+  const {productID, itemPrice, gender, itemSize, sellerFirstName, sellerCountry, timestamp} = props
 
   return (
     <div className={classes.txt}>
       <ul>
-        <li>SKU#: {props.productID}</li>
-        <li>Price: {props.itemPrice}</li>
-        <li>{props.gender + ' ' + props.itemSize}</li>
-        <li>Seller: {props.sellerFirstName + ' ' + 'from ' + props.sellerCountry}</li>
-        <li>Created at {props.timestamp}</li>
+        {
+          gender !== undefined || itemSize !== undefined ? (
+            <div>
+              <li>SKU#: {productID}</li>
+              <li>Price: {itemPrice}</li>
+              <li>{gender + ' ' + itemSize}</li>
+              <li>Seller: {sellerFirstName + ' ' + 'from ' + sellerCountry}</li>
+              <li>Created at {timestamp}</li>
+            </div>
+          ) : (
+            <div>
+              <li>SKU#: {productID}</li>
+              <li>Price: {itemPrice}</li>
+              <li>Seller: {sellerFirstName + ' ' + 'from ' + sellerCountry}</li>
+              <li>Created at {timestamp}</li>
+            </div>
+          )
+        }
+
       </ul>
     </div>
   );

@@ -65,11 +65,13 @@ const SingleProduct = props => {
       <div>
         <Card className={classes.card}>
           <CardMedia
+            className='single-product-img'
             component='img'
             height='500'
             image={img}
             title={props.product.title}
-          />
+          >
+          </CardMedia>
         </Card>
         <div className={classes.txt}>
           <h1>{props.product.title}</h1>
