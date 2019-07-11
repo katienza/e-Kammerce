@@ -17,22 +17,29 @@ const Products = props => {
     <div className='products-container'>
       <Navbar />
       <GridList cols={3}>
-      { products.map(collection => {
-        const timestamp = new Date(Date.parse(collection.created_at))
-        const date = timestamp.toLocaleTimeString() + ' on '+ timestamp.toLocaleDateString()
+        {products.map(collection => {
+          const timestamp = new Date(
+            Date.parse(collection.created_at),
+          );
+          const date =
+            timestamp.toLocaleTimeString() +
+            ' on ' +
+            timestamp.toLocaleDateString();
 
-        return (
-          <GridListTile key={collection.product_id}>
-          <ProductsList
-            key={collection.product_id}
-            productsTitle={collection.title}
-            productsPrice={collection.price_str}
-            productsCreatedAt={date}
-            productsImage={collection.media[0].sizes[0].url}
-          />
-          </GridListTile>
-        );
-      })}
+          return (
+            <GridListTile key={collection.product_id}>
+              <ProductsList
+                key={collection.product_id}
+                productsTitle={collection.title}
+                productsPrice={collection.price_str}
+                productsCreatedAt={date}
+                productsImage={
+                  collection.media[0].sizes[0].url
+                }
+              />
+            </GridListTile>
+          );
+        })}
       </GridList>
     </div>
   );

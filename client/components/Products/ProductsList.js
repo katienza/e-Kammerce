@@ -32,7 +32,7 @@ const ProductsList = props => {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <Grid container spacing={2}>
+        <Grid container alignItems='center' justify='center' spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
               <img
