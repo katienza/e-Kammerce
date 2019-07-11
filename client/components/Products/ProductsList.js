@@ -7,7 +7,9 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 
 const useStyles = makeStyles(theme => ({
   root: {
+    position: 'relative',
     flexGrow: 1,
+    height: '100%',
   },
   paper: {
     padding: theme.spacing(2),
