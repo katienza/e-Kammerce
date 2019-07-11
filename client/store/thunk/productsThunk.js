@@ -12,9 +12,11 @@ const getProductsAction = () => async dispatch => {
     const url = 'http://localhost:3000/api/products';
     const res = await axios.get(url);
     const limitedProducts = res.data.slice(0, 3);
-    dispatch(fetchProductsSuccess(limitedProducts));
+    const action = fetchProductsSuccess(limitedProducts)
+    dispatch(action);
   } catch (err) {
-    dispatch(fetchProductsError(err));
+    const error = fetchProductsError(err)
+    dispatch(error);
   }
 };
 

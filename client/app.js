@@ -6,10 +6,11 @@ import {
   withRouter,
 } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import ProtectedRoute from './PrivateRoute'
+import ProtectedRoute from './PrivateRoute';
 import UserHome from './components/UserHome';
 import Products from './components/Products/Products';
 import UsersList from './components/Users/Userslist';
+import SingleProduct from './components/Products/SingleProduct';
 
 class App extends PureComponent {
   render() {
@@ -18,12 +19,17 @@ class App extends PureComponent {
         <Switch>
           <Route exact path={'/'} component={UserHome} />
           <ProtectedRoute
+            exact
             path={'/products'}
             component={Products}
           />
-          <ProtectedRoute 
+          <ProtectedRoute
             path={'/usersList'}
             component={UsersList}
+          />
+          <ProtectedRoute
+            path={'/products/:id'}
+            component={SingleProduct}
           />
           <Route component={UserHome} />
         </Switch>

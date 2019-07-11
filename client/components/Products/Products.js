@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Navbar from './Navbar';
 import getProductsAction from '../../store/thunk/productsThunk';
 import ProductsList from './ProductsList';
@@ -28,15 +29,22 @@ const Products = props => {
 
           return (
             <GridListTile key={collection.product_id}>
-              <ProductsList
-                key={collection.product_id}
-                productsTitle={collection.title}
-                productsPrice={collection.price_str}
-                productsCreatedAt={date}
-                productsImage={
-                  collection.media[0].sizes[0].url
-                }
-              />
+              <NavLink
+                to={`/products/${collection.product_id}`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'unset',
+                }}>
+                <ProductsList
+                  key={collection.product_id}
+                  productsTitle={collection.title}
+                  productsPrice={collection.price_str}
+                  productsCreatedAt={date}
+                  productsImage={
+                    collection.media[0].sizes[0].url
+                  }
+                />
+              </NavLink>
             </GridListTile>
           );
         })}

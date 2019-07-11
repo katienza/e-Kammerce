@@ -56,10 +56,36 @@ router.get('/products', async (req, res, next) => {
           if (err) {
             throw err;
           } else {
-            res.send(
-              JSON.parse(JSON.stringify(products[0].data)),
-            );
+            res.send(JSON.parse(JSON.stringify(products[0].data)));
             return;
+          }
+        },
+      );
+  } catch (err) {
+    console.error(err);
+    next(err);
+  }
+});
+
+/*
+ * Retrieves a single product from db
+ */
+router.get('/products/:id', async (req, res, next) => {
+  try {
+    Products.find()
+      .lean()
+      .exec(
+        await function(err, product) {
+          if (err) {
+            throw err;
+          } else {
+            product[0].data.map(productObj => {
+              if (productObj.product_id === req.params.id) {
+                res.send(
+                  JSON.parse(JSON.stringify(productObj)),
+                );
+              }
+            });
           }
         },
       );
