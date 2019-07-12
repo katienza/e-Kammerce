@@ -18,7 +18,7 @@ const navbar = props => {
       ) : null}
       <p className='copyright'>&copy;2019 Ken Atienza</p>
       <p className='welcome-sign'>
-        Welcome, {props.username}
+        Welcome, {JSON.parse(localStorage.getItem('user')) || props.username}
       </p>
       <button
         className='userlist-btn'

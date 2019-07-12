@@ -30,6 +30,7 @@ class UserHome extends PureComponent {
 
       const isAuthenticated = !this.props.isLoggedIn
       localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated))
+      localStorage.setItem("user", JSON.stringify(user))
 
       this.props.history.push('/products')
       
