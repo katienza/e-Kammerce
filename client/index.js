@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import history from './history';
 import '../public/style.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import App from './app';
 
 const app = (

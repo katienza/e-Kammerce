@@ -4,8 +4,8 @@ import getSingleProductAction from '../../store/thunk/productThunk';
 import SingleProductList from './SingleProductList';
 import Navbar from './Navbar';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
+import { Carousel } from 'react-responsive-carousel';
+import CarouselImg from './CarouselImg';
 
 const useStyles = makeStyles({
   card: {
@@ -16,39 +16,39 @@ const useStyles = makeStyles({
     transform: 'translate(5%, 15%)',
   },
   txt: {
-    display: 'inline-block',
     position: 'relative',
-    bottom: '450px',
+    bottom: '250px',
     left: '50%',
   },
+  carousel: {
+    position: 'relative',
+    height: '300px !important',
+    width: '300px !important',
+    right: '15%',
+    top: '50px',
+    margin: 'auto',
+  }
 });
 
 const SingleProduct = props => {
   const classes = useStyles();
   const itemID = props.match.params.id;
+  
   const { product } = props;
-  const img =
-    product.media &&
-    product.media[0] &&
-    product.media[0].sizes &&
-    product.media[0].sizes[0] &&
-    product.media[0].sizes[0].url;
-  const sellerFName =
-    product.seller && product.seller.first_name;
-  const sellerCountry =
-    product.seller && product.seller.country;
-  const productID = product.product_id;
-  const gender =
-    product.category_data &&
-    product.category_data[0] &&
-    product.category_data[0].display_str;
-  const itemSize =
-    product.category_data &&
-    product.category_data[1] &&
-    product.category_data[1].display_str;
-  const itemPrice = product.price_str;
+
+  const productObj = product.filter(obj => obj.product_id === itemID ? obj : null);
+  const imgUrls = productObj[0].media.map(image => image.sizes[0].url)
+  
+  const productID = product.filter(obj => obj.product_id === itemID ? obj.product_id : null);
+  const itemName = product.filter(obj => obj.product_id === itemID)
+  const sellerFName = product.filter(obj => obj.product_id === itemID ? obj.seller.first_name : null)
+  const sellerCountry = product.filter(obj => obj.product_id === itemID ? obj.seller : null )
+  const itemPrice = product.filter(obj => obj.product_id === itemID ? obj.price : null )
+  const gender = product.filter(obj => obj.product_id === itemID ? obj.category_data : null )
+  const itemSize = product.filter(obj => obj.product_id === itemID ? obj.category_data : null )
+  const productCreation = product.filter(obj => obj.product_id === itemID ? obj.created_at : null )
   const timestamp = new Date(
-    Date.parse(product.created_at),
+    Date.parse(productCreation[0].created_at),
   );
   const date =
     timestamp.toLocaleTimeString() +
@@ -56,34 +56,35 @@ const SingleProduct = props => {
     timestamp.toLocaleDateString();
 
   useEffect(() => {
-    props.getProduct(itemID);
+    if (!props.product) props.getProduct(itemID);
   }, []);
 
   return (
     <div className='single-product-container'>
       <Navbar />
       <div>
-        <Card className={classes.card}>
-          <CardMedia
-            className='single-product-img'
-            component='img'
-            height='500'
-            image={img}
-            title={props.product.title}
-          >
-          </CardMedia>
-        </Card>
+        <div className={classes.carousel}>
+          <Carousel showArrows={true} showThumbs={false}>
+            {
+              imgUrls.map((url, idx) => {
+                return (
+                  <CarouselImg key={idx} imgUrl={url} />
+                )
+              })
+            }
+          </Carousel>
+        </div>
         <div className={classes.txt}>
-          <h1>{props.product.title}</h1>
+          <h1>{itemName[0].title}</h1>
         </div>
         <SingleProductList
           timestamp={date}
-          itemPrice={itemPrice}
-          itemSize={itemSize}
-          gender={gender}
-          productID={productID}
-          sellerFirstName={sellerFName}
-          sellerCountry={sellerCountry}
+          itemPrice={itemPrice[0].price_str}
+          itemSize={itemSize[0].category_data}
+          gender={gender[0].category_data}
+          productID={productID[0].product_id}
+          sellerFirstName={sellerFName[0].seller.first_name}
+          sellerCountry={sellerCountry[0].seller.country}
         />
       </div>
     </div>

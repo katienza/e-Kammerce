@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles({
   txt: {
     position: 'relative',
-    bottom: '425px',
+    bottom: '250px',
     left: '49%',
     fontSize: '25px',
   },
@@ -18,11 +18,11 @@ const SingleProductList = props => {
     <div className={classes.txt}>
       <ul>
         {
-          gender !== undefined || itemSize !== undefined ? (
+          gender.length > 0 || itemSize.length > 0 ? (
             <div>
               <li>SKU#: {productID}</li>
               <li>Price: {itemPrice}</li>
-              <li>{gender + ' ' + itemSize}</li>
+              <li>{gender[0].display_str + ' ' + itemSize[1].display_str}</li>
               <li>Seller: {sellerFirstName + ' ' + 'from ' + sellerCountry}</li>
               <li>Created at {timestamp}</li>
             </div>
@@ -35,7 +35,6 @@ const SingleProductList = props => {
             </div>
           )
         }
-
       </ul>
     </div>
   );
