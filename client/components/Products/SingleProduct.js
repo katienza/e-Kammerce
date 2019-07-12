@@ -38,14 +38,12 @@ const SingleProduct = props => {
 
   const productObj = product.filter(obj => obj.product_id === itemID ? obj : null);
   const imgUrls = productObj[0].media.map(image => image.sizes[0].url)
-  
   const productID = product.filter(obj => obj.product_id === itemID ? obj.product_id : null);
   const itemName = product.filter(obj => obj.product_id === itemID)
   const sellerFName = product.filter(obj => obj.product_id === itemID ? obj.seller.first_name : null)
   const sellerCountry = product.filter(obj => obj.product_id === itemID ? obj.seller : null )
   const itemPrice = product.filter(obj => obj.product_id === itemID ? obj.price : null )
-  const gender = product.filter(obj => obj.product_id === itemID ? obj.category_data : null )
-  const itemSize = product.filter(obj => obj.product_id === itemID ? obj.category_data : null )
+  const category = product.filter(obj => obj.product_id === itemID ? obj.category_data : null )
   const productCreation = product.filter(obj => obj.product_id === itemID ? obj.created_at : null )
   const timestamp = new Date(
     Date.parse(productCreation[0].created_at),
@@ -80,11 +78,10 @@ const SingleProduct = props => {
         <SingleProductList
           timestamp={date}
           itemPrice={itemPrice[0].price_str}
-          itemSize={itemSize[0].category_data}
-          gender={gender[0].category_data}
+          category={category[0]}
           productID={productID[0].product_id}
-          sellerFirstName={sellerFName[0].seller.first_name}
-          sellerCountry={sellerCountry[0].seller.country}
+          sellerFirstName={sellerFName}
+          sellerCountry={sellerCountry}
         />
       </div>
     </div>

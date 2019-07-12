@@ -438,8 +438,82 @@ const initialState = {
     "description": "Xbox 360 500GB and Wii",
     "price": 200,
     "media": [
-    {},
-    {},
+    {
+    "media_id": "3077083",
+    "offset_x": 50,
+    "offset_y": 50,
+    "sizes": [
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_dd7c_2uJ2obEKc-5F1024.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=sKqnoQbeue8HMGZaW-6M3E6cRMUdN5XwfRPEWlT3Zy4&e= ",
+    "width": 1024,
+    "height": 1366
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_dd7c_2uJ2obEKc-5F750.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=x1kzBUqV1kaoqtO1ETzSrOix_qzS4WWNzENOoxTlJ-I&e= ",
+    "width": 750,
+    "height": 1000
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_dd7c_2uJ2obEKc-5F480.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=4qK9qOgUnEi0KP3Mb415P_br0U32URQaf326fLow8HY&e= ",
+    "width": 480,
+    "height": 640
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_dd7c_2uJ2obEKc-5F320.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=oW4WhaNA7uVk5tSRh8dDZrVfKyhtFkPUnJMfdqQXSY4&e= ",
+    "width": 320,
+    "height": 427
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_dd7c_2uJ2obEKc-5F240.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=7Jxq6ZOy4I_l5TKj_Pv-vm0AS6QDQV0PjD1B52n0U6A&e= ",
+    "width": 240,
+    "height": 320
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_dd7c_2uJ2obEKc-5F50.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=TgBEyQlRxs6-P5EKKCx2Maw16OKuXbs4vMH5tzEl_5I&e= ",
+    "width": 50,
+    "height": 67
+    }
+    ],
+    "type": "photo"
+    },
+    {
+    "media_id": "3077082",
+    "offset_x": 50,
+    "offset_y": 50,
+    "sizes": [
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_ff93_3CGefidad-5F1024.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=dFtz96YkTZ3YPO7e4oCGXrFCFp32rzTDilt1MKfyo20&e= ",
+    "width": 1024,
+    "height": 1366
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_ff93_3CGefidad-5F750.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=ijCUeJ_vPXxxpoIoiCKbydfidU1MkN337n0Kg8f3FJg&e= ",
+    "width": 750,
+    "height": 1000
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_ff93_3CGefidad-5F480.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=nnXtyiVC83ggUUBv99EmYtJRT-aQHxbwQGjygbAmH7Q&e= ",
+    "width": 480,
+    "height": 640
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_ff93_3CGefidad-5F320.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=l92hTPqgMcg48W90-vpe-71np7d42fnAfkZYEQmkKc4&e= ",
+    "width": 320,
+    "height": 427
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_ff93_3CGefidad-5F240.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=uKDLm_We20-9iujKK_843Ess9_13GrlKXYSAh0w3aeg&e= ",
+    "width": 240,
+    "height": 320
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_ff93_3CGefidad-5F50.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=O_ACMQgNOW_BZfmDp9NK1gelsFNMhYDu2BFkVkEjWkE&e= ",
+    "width": 50,
+    "height": 67
+    }
+    ],
+    "type": "photo"
+    },
     {
     "media_id": "3077084",
     "offset_x": 50,
@@ -496,7 +570,34 @@ const initialState = {
     "phone_verified": false,
     "facebook_verified": true,
     "media": [
-    {}
+    {
+    "media_id": "3077077",
+    "offset_x": 50,
+    "offset_y": 50,
+    "sizes": [
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_d8ca_2rxNjmC7x-5F469.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=DFrKTNExoG4gPwp7I-iQZDnxojKjABPfdeMIY-gfMO4&e= ",
+    "width": 469,
+    "height": 469
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_d8ca_2rxNjmC7x-5F320.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=SSrYqA_W1N883PQE6wwfeJl5dPMilI5JVMXQDD9CcyU&e= ",
+    "width": 320,
+    "height": 320
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_d8ca_2rxNjmC7x-5F240.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=vRQOA1Ri5tcacMK90cVmRE2eif8UuVa5WcVBRIuN8kc&e= ",
+    "width": 240,
+    "height": 240
+    },
+    {
+    "url": "https://urldefense.proofpoint.com/v2/url?u=https-3A__plaza.akamaized.net_d8ca_2rxNjmC7x-5F50.jpg&d=DwIGAg&c=BioHiDP8cpFFEOWoiyRJQw&r=iVODmUvlnj9Gv1CnerQUPDIdtrRmtBcNKfRiU-Woa2E&m=G02rQ8eox3EXMXiIcJUTqblAmNOuTsQJ57vTlZk5c8g&s=uuLmh4pGNYuWP7g0yE_b1JDPlNWox7qmN2TKlbHrSvo&e= ",
+    "width": 50,
+    "height": 50
+    }
+    ],
+    "type": "photo"
+    }
     ],
     "lang": "en",
     "is_blocked": false,
@@ -8587,7 +8688,7 @@ const initialState = {
  *   REDUCER
  */
 export default function(state = initialState, action) {
-  console.log(state.loading)
+  (state.loading)
   if (action.type === GET_SINGLE_PRODUCT_LOADING) {
     return { ...state, loading: !state.loading };
   } else if (action.type === GET_SINGLE_PRODUCT_SUCCESS) {
