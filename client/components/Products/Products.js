@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Navbar from './Navbar';
 import getProductsAction from '../../store/thunk/productsThunk';
 import ProductsList from './ProductsList';
+import Sortby from './Sortby';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 
@@ -17,6 +18,7 @@ const Products = props => {
   return (
     <div className='products-container'>
       <Navbar />
+      <Sortby />
       <GridList className='products-grid' cols={3}>
         {products.map(collection => {
           const timestamp = new Date(

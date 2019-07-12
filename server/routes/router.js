@@ -72,7 +72,7 @@ router.get('/products', async (req, res, next) => {
  */
 router.get('/products/:id', async (req, res, next) => {
   try {
-    Products.find()
+    Products.find({})
       .lean()
       .exec(
         await function(err, product) {
@@ -94,5 +94,8 @@ router.get('/products/:id', async (req, res, next) => {
     next(err);
   }
 });
+
+
+
 
 module.exports = router;

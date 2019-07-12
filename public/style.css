@@ -80,7 +80,7 @@ body,
   margin: 10px;
 }
 
-.userlist-btn{
+.userlist-btn {
   position: absolute;
   background-color: #0096d6;
   color: #fff;
@@ -91,6 +91,7 @@ body,
   padding: 10px;
   margin: 10px;
   outline: 0;
+  cursor: pointer;
   border-radius: 15px;
 }
 
@@ -105,13 +106,14 @@ body,
   width: 300px;
   height: 50px;
   outline: 0;
+  cursor: pointer;
   border-radius: 15px;
 }
 /* PRODUCTS CONTAINER */
 .products-grid {
   position: relative;
-  top: 50%;
-  transform: translate(0%, 50%);
+  top: 3%;
+  transform: translate(0%, 3%);
 }
 
 /* USERS LIST */
@@ -133,4 +135,42 @@ table {
 td {
   text-align: center;
   border: 1px solid #fff;
+}
+
+/* SORT BTNS */
+.sort-container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  top: 20px;
+  left: 15px;
+  border: 1px solid #FFF;
+  width: 32%;
+  height: 20%;
+}
+
+.sort-txt {
+  position: relative;
+  left: 20px;
+}
+
+.sort-btn {
+  position: relative;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 20px;
+  top: 18px;
+  left: 30px;
+  width: 80px;
+  height: 40px;
+  margin: 5px;
+  border: none;
+  overflow: hidden;
+  outline: none;
+}
+
+.sort-btn:hover {
+  cursor: pointer;
+  outline: 0;
 }
