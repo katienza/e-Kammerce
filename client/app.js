@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import ProtectedRoute from './PrivateRoute';
 import UserHome from './components/UserHome';
 import Products from './components/Products/Products';
-import UsersList from './components/Users/Userslist';
+import UsersList from './components/Users/UsersList';
 import SingleProduct from './components/Products/SingleProduct';
 
 class App extends PureComponent {

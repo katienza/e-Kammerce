@@ -2,11 +2,12 @@
   "name": "e-kammerce",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.dev.config.js --open --mode development --hot",
-    "build": "webpack --config ./webpack.dev.config.js"
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js --open --mode development --hot",
+    "start": "node server/index.js",
+    "heroku-postbuild": "webpack -p --config ./webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "history": "^4.9.0",
+    "mongodb": "^3.2.7",
     "mongoose": "^5.6.3",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",

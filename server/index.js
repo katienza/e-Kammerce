@@ -6,13 +6,13 @@ const path = require('path');
 const compression = require('compression');
 const app = express();
 const cors = require('cors');
-const API_PORT = 3000;
+const PORT = process.env.MONGO_URI || 3000;
 
 /*
  *   MongoDB server connection
  */
 const mongoDB = 'mongodb://127.0.0.1:27017/e-kammerce';
-mongoose.connect(mongoDB, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || mongoDB, { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on(
@@ -42,7 +42,7 @@ const createApp = () => {
   /*
    *   Static file-serving middleware
    */
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'public')));
 
   /*
    *   Error-handling
@@ -62,7 +62,7 @@ const createApp = () => {
    */
   app.get('*', (req, res) => {
     res.sendFile(
-      path.join(__dirname + '../public/index.html'),
+      path.join(__dirname + '..' + 'index.html'),
     );
   });
 
@@ -77,8 +77,8 @@ const createApp = () => {
   /*
    * Listens and starts server
    */
-  app.listen(API_PORT, () => {
-    console.log(`LISTENING ON PORT ${API_PORT}...`);
+  app.listen(PORT, () => {
+    console.log(`LISTENING ON PORT ${PORT}...`);
   });
 };
 
