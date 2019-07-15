@@ -18,7 +18,7 @@ class UserHome extends PureComponent {
       event.preventDefault();
       
       const user = this.state.username;
-      axios.post('http://localhost:3000/api/', {
+      axios.post('https://e-kammerce.herokuapp.com/api/', {
         method: 'POST',
         body: user,
         headers: {

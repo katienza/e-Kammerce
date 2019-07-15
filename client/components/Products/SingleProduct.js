@@ -1,95 +1,62 @@
-import React, { useEffect } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import getSingleProductAction from '../../store/thunk/productThunk';
 import SingleProductList from './SingleProductList';
 import Navbar from './Navbar';
-import { makeStyles } from '@material-ui/core/styles';
 import { Carousel } from 'react-responsive-carousel';
 import CarouselImg from './CarouselImg';
 
-const useStyles = makeStyles({
-  card: {
-    position: 'relative',
-    maxWidth: 600,
-    left: '5%',
-    top: '15%',
-    transform: 'translate(5%, 15%)',
-  },
-  txt: {
-    position: 'relative',
-    bottom: '250px',
-    left: '50%',
-  },
-  carousel: {
-    position: 'relative',
-    height: '300px !important',
-    width: '300px !important',
-    right: '15%',
-    top: '50px',
-    margin: 'auto',
+class SingleProduct extends Component {
+  componentDidMount() {
+    const itemID = this.props.match.params.id;
+    this.props.getProduct(itemID)
   }
-});
 
-const SingleProduct = props => {
-  const classes = useStyles();
-  const itemID = props.match.params.id;
-  
-  const { product } = props;
+  render() {
+    if (this.props.product.length === 0) {
+      return <div>Loading...</div>
+    }
 
-  const productObj = product.filter(obj => obj.product_id === itemID ? obj : null);
-  const imgUrls = productObj[0].media.map(image => image.sizes[0].url)
-  const productID = product.filter(obj => obj.product_id === itemID ? obj.product_id : null);
-  const itemName = product.filter(obj => obj.product_id === itemID)
-  const sellerFName = product.filter(obj => obj.product_id === itemID ? obj.seller.first_name : null)
-  const sellerCountry = product.filter(obj => obj.product_id === itemID ? obj.seller : null )
-  const itemPrice = product.filter(obj => obj.product_id === itemID ? obj.price : null )
-  const category = product.filter(obj => obj.product_id === itemID ? obj.category_data : null )
-  const productCreation = product.filter(obj => obj.product_id === itemID ? obj.created_at : null )
-  const timestamp = new Date(
-    Date.parse(productCreation[0].created_at),
-  );
-  const date =
-    timestamp.toLocaleTimeString() +
-    ' on ' +
-    timestamp.toLocaleDateString();
-
-  useEffect(() => {
-    if (!props.product) props.getProduct(itemID);
-  }, []);
-
-  return (
-    <div className='single-product-container'>
-      <Navbar />
-      <div>
-        <div className={classes.carousel}>
-          <Carousel showArrows={true} showThumbs={false}>
-            {
-              imgUrls.map((url, idx) => {
-                return (
-                  <CarouselImg key={idx} imgUrl={url} />
-                )
-              })
-            }
-          </Carousel>
+    const { category_data, title, created_at, media, price_str, seller, product_id } = this.props.product[0]
+    const categoryData = category_data.map(category => category.display_str ? category.display_str : null).join(' ')
+    const imgUrls = media.map(img => img.sizes[0].url)
+    const timestamp = new Date(Date.parse(created_at));
+    const date = timestamp.toLocaleTimeString() + ' on ' + timestamp.toLocaleDateString();
+ 
+    return (
+      <div className='single-product-container'>
+        <Navbar />
+        <div>
+          <div className='carousel'>
+            <Carousel showArrows={true} showThumbs={false}>
+              {
+                imgUrls.map((url, idx) => {
+                  return (
+                    <CarouselImg key={idx} imgUrl={url} />
+                  )
+                })
+              }
+            </Carousel>
+          </div>
+          <div className='single-product-txt'>
+            <h1>{title}</h1>
+          </div>
+          <SingleProductList
+            time={date}
+            itemPrice={price_str}
+            category={categoryData}
+            productID={product_id}
+            sellerFirstName={seller.first_name}
+            sellerCountry={seller.country}
+          />
         </div>
-        <div className={classes.txt}>
-          <h1>{itemName[0].title}</h1>
-        </div>
-        <SingleProductList
-          timestamp={date}
-          itemPrice={itemPrice[0].price_str}
-          category={category[0]}
-          productID={productID[0].product_id}
-          sellerFirstName={sellerFName}
-          sellerCountry={sellerCountry}
-        />
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 const mapStateToProps = state => ({
-  product: state.singleProduct.product,
+  product: state.productsList.products,
 });
 
 const mapDispatchToProps = dispatch => ({

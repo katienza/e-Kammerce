@@ -9,7 +9,7 @@ import axios from 'axios';
  */
 const sortByName = () => async dispatch => {
   try {
-    const url = 'http://localhost:3000/api/products';
+    const url = 'https://e-kammerce.herokuapp.com/api/products';
     const res = await axios.get(url);
     const sortedData = res.data.sort((item1, item2) => {
       if (item1.title < item2.title) {

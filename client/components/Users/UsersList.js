@@ -12,7 +12,7 @@ class UsersList extends PureComponent {
   }
 
   async componentWillMount() {
-    const { data } = await axios.get('http://localhost:3000/api/usersList');
+    const { data } = await axios.get('https://e-kammerce.herokuapp.com/api/usersList');
     const userData = data.map(user => user.body);
     this.setState(state =>
       Object.assign({}, state, {

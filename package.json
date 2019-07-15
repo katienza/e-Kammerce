@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "server/index.js",
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.10.1"
+  },
   "scripts": {
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --config ./webpack.dev.config.js --open --mode development --hot",
     "start": "node server/index.js",
@@ -21,19 +26,19 @@
   "homepage": "https://github.com/katienza/e-Kammerce#readme",
   "devDependencies": {
     "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "babel-polyfill": "^6.26.0",
     "css-loader": "^3.0.0",
     "file-loader": "^4.0.0",
     "html-loader": "^0.5.5",
-    "react-hot-loader": "^4.12.2",
+    "react-hot-loader": "^4.12.6",
     "style-loader": "^0.23.1",
     "url-loader": "^2.0.1",
     "webpack": "^4.35.3",
-    "webpack-cli": "^3.3.5",
+    "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {

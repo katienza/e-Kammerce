@@ -6,13 +6,13 @@ const path = require('path');
 const compression = require('compression');
 const app = express();
 const cors = require('cors');
-const PORT = process.env.MONGO_URI || 3000;
+const PORT = process.env.PORT || 3002;
 
 /*
  *   MongoDB server connection
  */
 const mongoDB = 'mongodb://127.0.0.1:27017/e-kammerce';
-mongoose.connect(process.env.MONGODB_URI || mongoDB, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGOLAB_URI || mongoDB, { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on(
@@ -42,7 +42,7 @@ const createApp = () => {
   /*
    *   Static file-serving middleware
    */
-  app.use(express.static(path.join(__dirname, '..', 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'public')))
 
   /*
    *   Error-handling
@@ -60,11 +60,9 @@ const createApp = () => {
   /*
    * Sends index.html from public
    */
-  app.get('*', (req, res) => {
-    res.sendFile(
-      path.join(__dirname + '..' + 'index.html'),
-    );
-  });
+  app.use('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../public/index.html'))
+  })
 
   app.use((err, req, res, next) => {
     console.error(err);

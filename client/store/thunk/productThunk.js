@@ -2,7 +2,7 @@ import {
   getSingleProductLoading,
   getSingleProductSuccess,
   getSingleProductError,
-} from '../actions/productActions';
+} from '../actions/productsActions';
 import axios from 'axios';
 
 /*
@@ -10,10 +10,10 @@ import axios from 'axios';
  */
 const getSingleProductAction = id => async dispatch => {
   try {
-    const url = `http://localhost:3000/api/products/${id}`;
+    const productUrl = `https://e-kammerce.herokuapp.com/api/products/${id}`;
     dispatch(getSingleProductLoading())
-    const res = await axios.get(url);
-    const successAction = getSingleProductSuccess(res.data)
+    const product = await axios.get(productUrl)
+    const successAction = getSingleProductSuccess(product.data)
     dispatch(successAction)
   } catch (err) {
     const error = getSingleProductError(err)

@@ -31,7 +31,6 @@ const navbar = props => {
 
 const mapStateToProps = state => ({
   username: state.user.username,
-  product: state.singleProduct.product,
 });
 
 export default withRouter(connect(mapStateToProps)(navbar));

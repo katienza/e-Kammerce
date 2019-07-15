@@ -1,6 +1,7 @@
 import {
   fetchProductsSuccess,
   fetchProductsError,
+  fetchProductsLoading,
 } from '../actions/productsActions';
 import axios from 'axios';
 
@@ -9,7 +10,8 @@ import axios from 'axios';
  */
 const getProductsAction = () => async dispatch => {
   try {
-    const url = 'http://localhost:3000/api/products';
+    const url = 'https://e-kammerce.herokuapp.com/api/products';
+    dispatch(fetchProductsLoading());
     const res = await axios.get(url);
     const action = fetchProductsSuccess(res.data);
     dispatch(action);

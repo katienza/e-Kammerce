@@ -13,8 +13,12 @@ const Products = props => {
     props.getProducts();
   }, []);
 
-  const { products } = props;
+  if (props.products.length === 0) {
+    return <div>Loading...</div>
+  }
 
+  const { products } = props;
+ 
   return (
     <div className='products-container'>
       <Navbar />
